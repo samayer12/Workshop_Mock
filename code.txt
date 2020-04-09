@@ -1,0 +1,50 @@
+PYTHON COMMANDS
+
+from os import system
+
+# DUMMY - Basic side_effect
+from mock import Mock
+dummy_mock = Mock(side_effect = FileNotFoundError)
+dummy_mock('file.txt')
+dummy_mock.side_effect = TypeError
+dummy_mock('file.txt')
+
+system('clear')
+
+# STUB - Basic return_value
+from mock import Mock
+stub_mock = Mock(return_value='1')
+stub_mock(1, 5, fish='Peppered Cory')
+stub_mock(10, 5, fish='Peppered Cory')
+stub_mock(1, 5, fish='Neon Tetra')
+dir(stub_mock)
+
+system('clear')
+
+#SPY - Basic called_with
+from mock import MagicMock
+spy_mock = Mock()
+spy_mock.add_water(70)
+spy_mock.add_water.assert_called_with(70)
+spy_mock.add_water.assert_called_with(60)
+
+#ATTRIBUTES - Mock with attributes
+attribute_mock = Mock()
+attributes = {'tank_size': 60, 'fish_count': 25, 'lizard_count.side_effect': KeyError}
+attribute_mock.configure_mock(**attributes)
+attribute_mock.tank_size
+attribute_mock.fish_count
+attribute_mock.lizard_count
+
+system('clear')
+
+#SPEC - Mock with specification
+import requests
+spec_mock = Mock(spec=requests)
+dir(requests)
+dir(spec_mock)
+spec_mock.function()
+magic_mock.function()
+spec_mock.get()
+
+system('clear')
