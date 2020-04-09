@@ -1,6 +1,6 @@
 import unittest
 import requests
-import calls
+from code import calls
 import io
 from mock import Mock, patch
 

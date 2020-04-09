@@ -1,6 +1,6 @@
 import unittest
-from aquarium import Aquarium
-from mock import Mock, MagicMock, patch
+from code.aquarium import Aquarium
+from mock import patch
 
 
 def simple_water_change(gallons):
