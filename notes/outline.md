@@ -10,6 +10,7 @@
 Included with python 3.3 or newer. Otherwise, `pip install mock`
 [Documentation here](https://docs.python.org/3/library/unittest.mock.html)
 [Inspired by Mahdi Yusuf](https://www.youtube.com/watch?v=GYkGguhdqw00)
+[Workshop Repo](https://github.com/samayer12/Workshop_Mock)
 
 ---
 
