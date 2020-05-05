@@ -5,7 +5,7 @@ from mock import patch
 
 def simple_water_change(gallons):
     if gallons > 60:
-        return 'Splish splash'
+        raise OverflowError
     else:
         return 'A tall white fountain'
 
@@ -27,13 +27,13 @@ class TestCalls(unittest.TestCase):
 
     @patch('aquarium.Aquarium.water_change', side_effect=simple_water_change)
     def test_water_change_rejects_too_much_water_patched(self, mocky_mock):
-        result = mocky_mock(70)
-        self.assertEqual('Splish splash', result)
+        with self.assertRaises(OverflowError):
+            mocky_mock(70)
 
     def test_water_change_rejects_too_much_water_context(self):
         with patch('aquarium.Aquarium.water_change', side_effect=simple_water_change) as mocky_mock:
-            result = mocky_mock(70)
-        self.assertEqual('Splish splash', result)
+            with self.assertRaises(OverflowError):
+                mocky_mock(70)
 
     @patch('aquarium.Aquarium.water_change', side_effect=simple_water_change)
     def test_water_change_accepts_enough_water_patched(self, mocky_mock):
