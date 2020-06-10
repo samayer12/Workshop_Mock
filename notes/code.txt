@@ -9,8 +9,6 @@ dummy_mock('file.txt')
 dummy_mock.side_effect = TypeError
 dummy_mock('file.txt')
 
-system('clear')
-
 # STUB - Basic return_value
 from mock import Mock
 stub_mock = Mock(return_value='1')
@@ -18,8 +16,6 @@ stub_mock(1, 5, fish='Peppered Cory')
 stub_mock(10, 5, fish='Peppered Cory')
 stub_mock(1, 5, fish='Neon Tetra')
 dir(stub_mock)
-
-system('clear')
 
 #SPY - Basic called_with
 from mock import MagicMock
@@ -36,8 +32,6 @@ attribute_mock.tank_size
 attribute_mock.fish_count
 attribute_mock.lizard_count
 
-system('clear')
-
 #SPEC - Mock with specification
 import requests
 spec_mock = Mock(spec=requests)
@@ -46,5 +40,3 @@ dir(spec_mock)
 spec_mock.function()
 magic_mock.function()
 spec_mock.get()
-
-system('clear')
